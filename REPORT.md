@@ -12,25 +12,25 @@ Replace every `=>` with a real sentence; every number gets a unit.*
 ## Global - what the model leans on overall (Partner A)
 ![built-in importances](images/importances_builtin.png)
 
-=> One sentence: which feature does the model lean on most, by magnitude alone?
+=> hour_of_day is the model's top feature by a wide margin, followed by dewpoint_f and temp_f
 
 ![SHAP beeswarm](images/shap_global.png)
 
-=> One sentence: which feature is #1, and does a HIGH value push demand up or down?
+=> hour_of_day. High values (afternoon/evening hours, shown in pink/red) push demand up.
 
 ## Local - one hour explained (Partner B)
 ![predicted vs actual](images/predicted_vs_actual.png)
 
-=> One sentence: does it track the diagonal? roughly how far off is a typical hour?
+=> Yes, the points track the diagonal closely, with a typical miss of around 662 MW
 
 ![SHAP waterfall for the peak hour](images/shap_local.png)
 
-=> One sentence: for the peak hour, what pushed the prediction up, and what pulled it down?
+=> hour_of_day (+2,858 MW) and temp_f (+1,133 MW) pushed the prediction up the most. dewpoint_f and wind_kt pulled it down slightly.
 
 ## Combined (both, optional)
 ![SHAP dependence](images/shap_dependence.png)
 
-=> One sentence tying Lab 1 to Lab 2: *"it's the clock as much as the thermometer"* - in your words.
+=> Time of day matters just as much as temperature when it comes to demand.
 
 ## What this explanation can't tell us
-=> One honest sentence. (SHAP explains THIS model, not the real world; one summer, one region; correlation, not proof.)
+=> SHAP explains what this specific model learned from one summer's data in one region, it shows correlation the model relied on, not proof of what actually causes demand to rise.
